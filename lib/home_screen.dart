@@ -115,7 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          //
+          //layer 2
+          Positioned(
+              left: 24,
+              top: 220,
+              child: Image.asset("assets/images/banner.png"))
         ],
       ),
     );
