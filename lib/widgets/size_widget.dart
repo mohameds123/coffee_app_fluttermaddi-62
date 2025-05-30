@@ -10,6 +10,9 @@ class SizeWidget extends StatefulWidget {
 }
 
 class _SizeWidgetState extends State<SizeWidget> {
+  bool isS = true;
+  bool isM = false;
+  bool isL = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,66 +38,87 @@ class _SizeWidgetState extends State<SizeWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      isS = true;
+                      isM = false;
+                      isL = false;
+                      setState(() {
+
+                      });
+                    },
                     child: Container(
                       width: 96,
                       height: 43,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: isS == true ? ColorsManager.lightBrown :Colors.white,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                              color: ColorsManager.lightGrey,
+                              color: isS == true ? ColorsManager.brown : ColorsManager.lightGrey,
                               width: 1.5
                           )
                       ),
                       child: Center(child: Text('S',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: ColorsManager.blackTextColor,
+                            color: isS == true ? ColorsManager.brown:ColorsManager.blackTextColor,
                             fontSize: 14
                         ),
                       )),
                     ),
                   ),
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      isM = true;
+                      isS = false;
+                      isL = false;
+                      setState(() {
+
+                      });
+                    },
                     child: Container(
                       width: 96,
                       height: 43,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: isM == true ? ColorsManager.lightBrown : Colors.white,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                              color: ColorsManager.lightGrey,
+                              color: isM == true ? ColorsManager.brown : ColorsManager.lightGrey,
                               width: 1.5
                           )
                       ),
                       child: Center(child: Text('M',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: ColorsManager.blackTextColor,
+                            color: isM == true ? ColorsManager.brown:ColorsManager.blackTextColor,
                             fontSize: 14
                         ),
                       )),
                     ),
                   ),
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      isL = true;
+                      isS = false;
+                      isM = false;
+                      setState(() {
+
+                      });
+                    },
                     child: Container(
                       width: 96,
                       height: 43,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: isL == true ? ColorsManager.lightBrown : Colors.white,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                              color: ColorsManager.lightGrey,
+                              color: isL == true ? ColorsManager.brown : ColorsManager.lightGrey,
                               width: 1.5
                           )
                       ),
                       child: Center(child: Text('L',
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: ColorsManager.blackTextColor,
+                            color: isL == true ? ColorsManager.brown:ColorsManager.blackTextColor,
                             fontSize: 14
                         ),
                       )),
@@ -131,7 +155,7 @@ class _SizeWidgetState extends State<SizeWidget> {
                   fontWeight: FontWeight.w400
                   ),
                   ),
-                  Text('\$4.5',
+                  Text(isS == true ?'\$4.5' : isM == true? "\$7.6" : "\$9.0",
                     style: TextStyle(
                         color: ColorsManager.brown,
                         fontSize: 18,

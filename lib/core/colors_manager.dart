@@ -8,6 +8,9 @@ class ColorsManager{
   static Color lightGrey = Color.fromRGBO(222, 222, 222, 1);
   static Color brown = Color.fromRGBO(198, 124, 78, 1);
   static Color lightBrown = Color.fromRGBO(255, 245, 238, 1);
+  static Color backGroundColor = Color.fromRGBO(43, 43, 43, 1);
+  static Color lightGreyTextColor = Color.fromRGBO(221, 221, 221, 1);
+  static Color TextFieldColor = Color.fromRGBO(152, 152, 152, 0.2);
 
 
 
