@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List <String> coffeeType = ["Cappuccino","Machiato","Latte","Amricano","Ice Coffee",];
+  int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,6 +112,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 flex: 2,
                 child: Container(
                   color: Colors.white,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 112),
+                        child: SizedBox(
+                            height: 40,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: coffeeType.length ,
+                                itemBuilder: (context, index){
+                                  bool isSelected = selectedItem == index;
+
+                                  return InkWell(
+                                    onTap: (){
+                                      selectedItem = index;
+                                      setState(() {
+
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                                      child: Container(
+                                      height: 38,
+
+                                      decoration: BoxDecoration(
+                                          color: isSelected ? ColorsManager.brown : ColorsManager.listGrey,
+                                          borderRadius: BorderRadius.circular(12)
+                                      ),
+                                      child: Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                          child: Text(coffeeType[index],
+                                          style: TextStyle(
+                                            color: isSelected? Colors.white: ColorsManager.blackTextColor,
+                                            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                                          ),
+                                          ),
+                                        ),
+                                      ),
+                                                                    ),
+                                    ),
+                                  );
+                                },)),
+                      )
+
+                    ],
+                  ),
 
                 ),
               ),
@@ -119,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Positioned(
               left: 24,
               top: 220,
-              child: Image.asset("assets/images/banner.png"))
+              child: Image.asset("assets/images/banner.png")),
         ],
       ),
     );
